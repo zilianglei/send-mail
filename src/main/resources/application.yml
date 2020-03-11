@@ -1,0 +1,58 @@
+spring:
+  mail:
+    password: rijthpdghhmebegi
+    host: smtp.qq.com
+    username: 568934101@qq.com
+    port: 587
+    protocol: smtp
+    default-encoding: utf-8
+    properties:
+        mail.smtp.auth: true
+        mail.smtp.starttls.enable: true
+        mail.smtp.starttls.required: true
+        mail.smtp.socketFactory.port: 465
+        mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+        mail.smtp.socketFactory.fallback: false
+        mail.debug: true
+
+  thymeleaf:
+    prefix: classpath:/templates/ #prefix\uFF1A\u6307\u5B9A\u6A21\u677F\u6240\u5728\u7684\u76EE\u5F55
+    check-template-location: true  #check-tempate-location: \u68C0\u67E5\u6A21\u677F\u8DEF\u5F84\u662F\u5426\u5B58\u5728
+    cache: false  #cache: \u662F\u5426\u7F13\u5B58\uFF0C\u5F00\u53D1\u6A21\u5F0F\u4E0B\u8BBE\u7F6E\u4E3Afalse\uFF0C\u907F\u514D\u6539\u4E86\u6A21\u677F\u8FD8\u8981\u91CD\u542F\u670D\u52A1\u5668\uFF0C\u7EBF\u4E0A\u8BBE\u7F6E\u4E3Atrue\uFF0C\u53EF\u4EE5\u63D0\u9AD8\u6027\u80FD\u3002
+    suffix:  .html
+    #encoding: UTF-8
+    #content-type: text/html
+    mode: HTML5
+
+
+  flyway:
+    baselineOnMigrate: true
+    locations: classpath:/db/migration/ # sql\u6587\u4EF6\u7684\u4F4D\u7F6E
+
+
+  datasource:
+      url: jdbc:mysql://localhost:3306/insight?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC&useSSL=false
+      driverClassName: com.mysql.jdbc.Driver
+      username: root
+      password: 123321
+      type: com.alibaba.druid.pool.DruidDataSource
+      #\u9879\u76EE\u542F\u52A8\u540E\u6267\u884C\u5EFA\u8868\u8BED\u53E5
+      druid:
+        filters: stat
+        initial-size: 1
+        min-idle: 1
+        max-active: 20
+        #\u83B7\u53D6\u8FDE\u63A5\u7B49\u5F85\u8D85\u65F6\u65F6\u95F4
+        max-wait: 60000
+        #\u95F4\u9694\u591A\u4E45\u8FDB\u884C\u4E00\u6B21\u68C0\u6D4B\uFF0C\u68C0\u6D4B\u9700\u8981\u5173\u95ED\u7684\u7A7A\u95F2\u8FDE\u63A5
+        time-between-eviction-runs-millis: 60000
+        #\u4E00\u4E2A\u8FDE\u63A5\u5728\u6C60\u4E2D\u6700\u5C0F\u751F\u5B58\u7684\u65F6\u95F4
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 'x'
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        #\u6253\u5F00PSCache\uFF0C\u5E76\u6307\u5B9A\u6BCF\u4E2A\u8FDE\u63A5\u4E0APSCache\u7684\u5927\u5C0F\u3002oracle\u8BBE\u4E3Atrue\uFF0Cmysql\u8BBE\u4E3Afalse\u3002\u5206\u5E93\u5206\u8868\u8F83\u591A\u63A8\u8350\u8BBE\u7F6E\u4E3Afalse
+        pool-prepared-statements: false
+        max-pool-prepared-statement-per-connection-size: 20
+
