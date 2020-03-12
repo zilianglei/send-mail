@@ -34,7 +34,7 @@ spring:
       url: jdbc:mysql://localhost:3306/insight?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC&useSSL=false
       driverClassName: com.mysql.jdbc.Driver
       username: root
-      password: leiziliang
+      password: 123321
       type: com.alibaba.druid.pool.DruidDataSource
       #项目启动后执行建表语句
       druid:
@@ -56,3 +56,5 @@ spring:
         pool-prepared-statements: false
         max-pool-prepared-statement-per-connection-size: 20
 
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
